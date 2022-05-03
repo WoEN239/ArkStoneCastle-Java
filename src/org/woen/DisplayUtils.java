@@ -22,11 +22,16 @@ public class DisplayUtils {
 	}
 
 	public void displayLogo() {
-		graphics.drawString("WoEN 239", LCD.SCREEN_WIDTH/2, LCD.SCREEN_HEIGHT/2 - graphics.getFont().getHeight()/2, Graphics.HCENTER | Graphics.VCENTER);
 		try {
 			Image image = Image.createImage(new FileInputStream(new File ("WoEN Logo NXT.ini")));
 			graphics.drawImage(image, 0, 0, 0);
-		} catch (IOException ignored) {}
+		} catch (IOException ignored) {
+			displayString("WoEN 239");
+		}
+	}
+	
+	public void displayString(String string) {
+		graphics.drawString(string, LCD.SCREEN_WIDTH/2, LCD.SCREEN_HEIGHT/2 - graphics.getFont().getHeight()/2, Graphics.HCENTER | Graphics.VCENTER, false);
 	}
 	
 	public void clear() {

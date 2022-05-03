@@ -14,7 +14,12 @@ import lejos.robotics.Servo;
  */
 public class FixedTetrixServo implements Servo{
     private FixedTetrixServoController sc;
-    private int channel;
+    
+    public FixedTetrixServoController getController() {
+		return sc;
+	}
+
+	private int channel;
     
     FixedTetrixServo(FixedTetrixServoController sc, int channel) {
         this.sc=sc;
